@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <meta name="description" content="不超过150个字符"/>
+    <meta name="keywords" content=""/>
+    <meta content="caibaojian" name="author"/>
+    <title>前端开发博客</title>
+    <link rel="stylesheet" href="base.css">
+
+    <!--直观的看到效果的， 就是    改变窗口的大小， html 的font-size 属性，也会跟着变化-->
+
+    <!--
+    兼容UC竖屏转横屏出现的BUG
+    自定义设计稿的宽度：designWidth
+    最大宽度:maxWidth
+    这段js的最后面有两个参数记得要设置，一个为设计稿实际宽度，一个为制作稿最大宽度，例如设计稿为750，最大宽度为750，则为(750,750)
+    -->
+    <!--内嵌js代码的方式-->
+    <script type="text/javascript">
+        //引入该flexible.min.js
+        // 附（于rem布局知识无关）：(  !function(){}()  是 立即执行函数的一种写法， 相当于 (function(){})() ,因为（）里表示 是表达式， ！后也表示表达式，还有其他方式，请自行搜索 立即执行函数的写法  )
+        !function(e,t){function n(){var n=l.getBoundingClientRect().width;t=t||540,n>t&&(n=t);var i=100*n/e;r.innerHTML="html{font-size:"+i+"px;}"}var i,d=document,o=window,l=d.documentElement,r=document.createElement("style");if(l.firstElementChild)l.firstElementChild.appendChild(r);else{var a=d.createElement("div");a.appendChild(r),d.write(a.innerHTML),a=null}n(),o.addEventListener("resize",function(){clearTimeout(i),i=setTimeout(n,300)},!1),o.addEventListener("pageshow",function(e){e.persisted&&(clearTimeout(i),i=setTimeout(n,300))},!1),"complete"===d.readyState?d.body.style.fontSize="16px":d.addEventListener("DOMContentLoaded",function(e){d.body.style.fontSize="16px"},!1)}(750,750);
+    </script>
+    <!--从外部引入的方式， 如果设计稿不是 750px 的，请在  flexble.js 中修改为你的设计稿尺寸-->
+    <!--<script src="flexible.js"></script>-->
+
+    <style>
+        /*我这里是为了方便测试，直接在html中写的样式，实际开发中，请提出去即可*/
+        .testDiv{
+            width: 2rem;  /*如果750设计稿的尺寸为 200px， rem值 = 设计稿尺寸/ 100 , 浏览器显示 100px， 因为dpr为2，手机的尺寸为 375*/
+            height: 2rem;
+            font-size: .4rem;
+            background: orange;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <!-- 正文 -->
+
+    <div class="testDiv">我根据窗口大小变化</div>
+
+
+
+</body>
+</html>
